@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(scripts/import-jobs:*)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Bash(python3 scripts/import-jobs \"data/[WIP] RHDH TOC mapping - JTBD Effort.xlsx\")"
+    ],
+    "additionalDirectories": [
+      "/home/ffloreth/src/gh/themr0c/jirha/.claude"
+    ]
+  }
+}
