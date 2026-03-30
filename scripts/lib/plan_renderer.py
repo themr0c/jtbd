@@ -51,7 +51,9 @@ def render_job_brief(job, job_report, epic_key):
 
     cs_lines = []
     for entry in (job_report or {}).get('entries', []):
-        source = entry.get('source', '')
+        source = entry.get('source') or ''
+        if not source:
+            continue
         status = entry.get('status', 'not_found')
         match = entry.get('match')
         confidence = entry.get('confidence', 0)
