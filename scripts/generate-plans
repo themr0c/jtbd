@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Generate docs/plan.md and docs/jobs/job-NN.md from jobs.json."""
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+
+from lib.plan_renderer import render_general_plan, render_job_brief
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('jobs_json', nargs='?', default='data/jobs.json')
+    parser.add_argument('--report', default='data/current-state-report.json')
+    parser.add_argument('--epic', required=True, help='Jira epic key e.g. RHIDP-1234')
+    parser.add_argument('--output-dir', default='docs')
+    args = parser.parse_args()
+
+    try:
+        with open(args.jobs_json) as f:
+            jobs = json.load(f)['jobs']
+    except FileNotFoundError:
+        print(f'ERROR: {args.jobs_json} not found — run scripts/extract first', file=sys.stderr)
+        sys.exit(1)
+    except (json.JSONDecodeError, KeyError) as e:
+        print(f'ERROR: {args.jobs_json} is invalid: {e}', file=sys.stderr)
+        sys.exit(1)
+
+    report = {'jobs': {}}
+    report_path = Path(args.report)
+    if report_path.exists():
+        with open(report_path) as f:
+            report = json.load(f)
+    else:
+        print(f'Warning: {args.report} not found — no current-state annotations', file=sys.stderr)
+
+    out = Path(args.output_dir)
+    (out / 'jobs').mkdir(parents=True, exist_ok=True)
+
+    (out / 'plan.md').write_text(render_general_plan(jobs, report, args.epic))
+    print(f'Written: {out}/plan.md')
+
+    for job in jobs:
+        num = job['num'].zfill(2)
+        job_report = report.get('jobs', {}).get(job['num'], {})
+        (out / 'jobs' / f'job-{num}.md').write_text(render_job_brief(job, job_report, args.epic))
+
+    print(f'Written: {len(jobs)} briefs → {out}/jobs/')
+
+
+if __name__ == '__main__':
+    main()
