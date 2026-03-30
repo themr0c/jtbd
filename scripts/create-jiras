@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""Create or update Jira tasks from docs/jobs/job-NN.md briefs."""
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+
+from lib.parse_markdown import parse_brief, write_jira_key
+
+GITHUB_BASE = 'https://github.com/themr0c/jtbd/blob/main'
+
+
+def _table_to_jira(md_table):
+    lines = [l for l in md_table.splitlines() if '|' in l and '---' not in l]
+    if not lines:
+        return '(No content mapping available.)'
+    result = []
+    for i, line in enumerate(lines):
+        cells = [c.strip() for c in line.split('|') if c.strip()]
+        sep = '||' if i == 0 else '|'
+        result.append(sep + sep.join(cells) + sep)
+    return '\n'.join(result)
+
+
+def _checklist_to_jira(md):
+    return '\n'.join(re.sub(r'^- \[[ x]\] ', '* ', l) for l in md.splitlines())
+
+
+def get_epic_key(plan_path='docs/plan.md'):
+    try:
+        m = re.search(r'Epic: (RHIDP-\w+)', Path(plan_path).read_text())
+        return m.group(1) if m else None
+    except FileNotFoundError:
+        return None
+
+
+def _parse_priority(priority_field):
+    for key in ('Major', 'Normal', 'Minor'):
+        if key in priority_field:
+            return key
+    return 'Normal'
+
+
+def _parse_job_num(sheet_row):
+    m = re.search(r'#(\d+)', sheet_row)
+    return m.group(1).zfill(2) if m else '00'
+
+
+def _build_description(brief):
+    p = Path(brief['path'])
+    try:
+        rel = p.relative_to(Path.cwd())
+    except ValueError:
+        rel = p
+    link = f'{GITHUB_BASE}/{rel}'
+    return (
+        f'h1. Job Statement\n\n{brief["job_statement"]}\n\n'
+        f'h2. Target Structure\n\n{_table_to_jira(brief["target_structure"])}\n\n'
+        f'h2. Rewrite Instructions\n\n{brief["rewrite_instructions"]}\n\n'
+        f'h2. Acceptance Criteria\n\n{_checklist_to_jira(brief["acceptance_criteria"])}\n\n'
+        f'h2. References\n\n* [Full brief|{link}]\n'
+    )
+
+
+def _run(cmd, label):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f'  ERROR {label}: {r.stderr.strip()}', file=sys.stderr)
+        return None
+    return r.stdout
+
+
+def create_or_update(brief, parent, dry_run=False):
+    priority = _parse_priority(brief['priority'])
+    desc = _build_description(brief)
+
+    if brief['jira_key']:
+        if dry_run:
+            print(f'  [dry-run] UPDATE {brief["jira_key"]} — {brief["title"]}')
+            return brief['jira_key']
+        cmd = ['jirha', 'update', brief['jira_key'],
+               '-s', brief['title'], '--desc', desc, '--priority', priority]
+        out = _run(cmd, f'update {brief["jira_key"]}')
+        if out is not None:
+            print(f'  Updated {brief["jira_key"]} — {brief["title"]}')
+        return brief['jira_key'] if out is not None else None
+
+    if dry_run:
+        print(f'  [dry-run] CREATE — {brief["title"]} (parent: {parent})')
+        return None
+
+    cmd = ['jirha', 'create', 'RHIDP', brief['title'],
+           '--type', 'Task', '--priority', priority,
+           '--component', 'Documentation', '--desc', desc, '--parent', parent]
+    out = _run(cmd, 'create')
+    if out is None:
+        return None
+    for line in out.splitlines():
+        if line.startswith('Created '):
+            key = line.split(':')[0].replace('Created ', '').strip()
+            print(f'  Created {key} — {brief["title"]}')
+            return key
+    return None
+
+
+def _apply_labels(key, brief):
+    """Apply jtbd, job-NN, and category labels to a newly created issue."""
+    job_num = _parse_job_num(brief['sheet_row'])
+    category_label = brief['category'].lower().replace(' ', '-')
+    for label in ['jtbd', f'job-{job_num}', category_label]:
+        subprocess.run(['jirha', 'update', key, '--add-label', label],
+                       capture_output=True, text=True)
+
+
+def _handle_result(key, was_new, brief, brief_path, execute):
+    """Update counters and write back key after create/update."""
+    if key is None and execute:
+        return 0, 0, 1
+    if key and execute:
+        if was_new:
+            write_jira_key(brief_path, key)
+            _apply_labels(key, brief)
+            return 1, 0, 0
+        return 0, 1, 0
+    return 0, 0, 0
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--jobs-dir', default='docs/jobs')
+    parser.add_argument('--plan', default='docs/plan.md')
+    parser.add_argument('--parent', help='Override epic key from plan.md')
+    parser.add_argument('--exec', action='store_true', dest='execute')
+    args = parser.parse_args()
+
+    parent = args.parent or get_epic_key(args.plan)
+    if not parent:
+        print('ERROR: epic key not found in plan.md — use --parent RHIDP-XXXX', file=sys.stderr)
+        sys.exit(1)
+
+    briefs = sorted(Path(args.jobs_dir).glob('job-*.md'))
+    if not briefs:
+        print(f'No job-NN.md files found in {args.jobs_dir}', file=sys.stderr)
+        sys.exit(1)
+
+    if not args.execute:
+        print('--- DRY RUN (pass --exec to create/update issues) ---\n')
+
+    created, updated, failed = 0, 0, 0
+    for brief_path in briefs:
+        brief = parse_brief(brief_path)
+        was_new = not brief['jira_key']
+        key = create_or_update(brief, parent, dry_run=not args.execute)
+        c, u, f = _handle_result(key, was_new, brief, brief_path, args.execute)
+        created += c
+        updated += u
+        failed += f
+
+    if args.execute:
+        print(f'\n--- Summary: {created} created, {updated} updated, {failed} failed ---')
+
+
+if __name__ == '__main__':
+    main()
