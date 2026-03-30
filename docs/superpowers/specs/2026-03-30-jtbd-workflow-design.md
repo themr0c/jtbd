@@ -188,3 +188,12 @@ The only change required: CS and stakeholders need GitHub access (they likely al
 |---|---|---|
 | `RHDH_DOCS_PATH` | `../red-hat-developers-documentation-rhdh` | Local clone of rhdh-docs |
 | `JTBD_EPIC` | (required) | Jira epic key, e.g. `RHIDP-XXXX` |
+
+## Repository
+
+GitHub: https://github.com/themr0c/jtbd
+
+`create-jiras` includes a link to the per-title brief in each Jira task description:
+`https://github.com/themr0c/jtbd/blob/main/docs/jobs/job-NN.md`
+
+This also enables the phase 2 stakeholder review flow: CS opens a PR against `main`, stakeholders comment on specific lines in the brief, link is shared in the Jira task.
