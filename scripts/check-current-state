@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""Check sheet source references against rhdh-docs main branch headings."""
+import json
+import os
+import subprocess
+import sys
+from datetime import date
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+
+from lib.current_state import load_headings, check_reference
+
+DEFAULT_DOCS_PATH = os.environ.get(
+    'RHDH_DOCS_PATH',
+    str(Path(__file__).parent.parent.parent / 'red-hat-developers-documentation-rhdh'),
+)
+
+
+def _git_commit(docs_path):
+    try:
+        r = subprocess.run(['git', 'rev-parse', '--short', 'HEAD'],
+                           cwd=docs_path, capture_output=True, text=True)
+        return r.stdout.strip()
+    except Exception:
+        return 'unknown'
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('jobs_json', nargs='?', default='data/jobs.json')
+    parser.add_argument('--output', default='data/current-state-report.json')
+    parser.add_argument('--docs-path', default=DEFAULT_DOCS_PATH)
+    args = parser.parse_args()
+
+    docs_path = Path(args.docs_path)
+    if not docs_path.exists():
+        print(f'ERROR: rhdh-docs not found at {docs_path}', file=sys.stderr)
+        print('Set RHDH_DOCS_PATH env var or use --docs-path', file=sys.stderr)
+        sys.exit(1)
+
+    with open(args.jobs_json) as f:
+        jobs = json.load(f)['jobs']
+
+    print(f'Loading headings from {docs_path} …')
+    headings = load_headings(docs_path)
+    print(f'  {len(headings)} headings indexed')
+
+    report = {
+        'generated': date.today().isoformat(),
+        'docs_path': str(docs_path),
+        'docs_commit': _git_commit(docs_path),
+        'jobs': {},
+    }
+
+    flagged = 0
+    for job in jobs:
+        entries_report = []
+        for entry in job.get('entries', []):
+            source = entry.get('source', '')
+            if not source:
+                continue
+            result = check_reference(source, headings)
+            result['source'] = source
+            entries_report.append(result)
+        is_flagged = any(e['status'] != 'found' for e in entries_report)
+        if is_flagged:
+            flagged += 1
+        report['jobs'][job['num']] = {'flagged': is_flagged, 'entries': entries_report}
+
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
+    with open(args.output, 'w') as f:
+        json.dump(report, f, indent=2, ensure_ascii=False)
+
+    print(f'{flagged}/{len(jobs)} jobs flagged → {args.output}')
+
+
+if __name__ == '__main__':
+    main()

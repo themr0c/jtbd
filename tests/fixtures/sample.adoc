@@ -1,0 +1,13 @@
+= Installing Red Hat Developer Hub on OpenShift Container Platform
+
+== Before you begin
+
+Prerequisites text.
+
+== Installing the Operator
+
+Procedure text.
+
+=== Verifying the installation
+
+Check it works.
