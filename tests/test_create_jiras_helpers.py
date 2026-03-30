@@ -51,3 +51,18 @@ def test_get_epic_key_missing(tmp_path):
     p = tmp_path / 'plan.md'
     p.write_text('# Plan\n\nNo epic here.\n')
     assert get_epic_key(str(p)) is None
+
+
+def test_build_description_github_link():
+    from pathlib import Path
+    # Load create-jiras module (already done at module level as `mod`)
+    _build_description = mod._build_description
+    brief = {
+        'path': '/any/absolute/path/docs/jobs/job-07.md',
+        'job_statement': 'When I do X, I want Y.',
+        'target_structure': '',
+        'rewrite_instructions': 'Rewrite headings.',
+        'acceptance_criteria': '- [ ] Done',
+    }
+    desc = _build_description(brief)
+    assert 'https://github.com/themr0c/jtbd/blob/main/docs/jobs/job-07.md' in desc

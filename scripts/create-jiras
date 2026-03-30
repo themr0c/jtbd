@@ -49,12 +49,8 @@ def _parse_job_num(sheet_row):
 
 
 def _build_description(brief):
-    p = Path(brief['path'])
-    try:
-        rel = p.relative_to(Path.cwd())
-    except ValueError:
-        rel = p
-    link = f'{GITHUB_BASE}/{rel}'
+    job_stem = Path(brief['path']).stem  # e.g. "job-03"
+    link = f'{GITHUB_BASE}/docs/jobs/{job_stem}.md'
     return (
         f'h1. Job Statement\n\n{brief["job_statement"]}\n\n'
         f'h2. Target Structure\n\n{_table_to_jira(brief["target_structure"])}\n\n'
