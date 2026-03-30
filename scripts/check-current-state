@@ -40,8 +40,16 @@ def main():
         print('Set RHDH_DOCS_PATH env var or use --docs-path', file=sys.stderr)
         sys.exit(1)
 
-    with open(args.jobs_json) as f:
-        jobs = json.load(f)['jobs']
+    try:
+        with open(args.jobs_json) as f:
+            data = json.load(f)
+        jobs = data['jobs']
+    except FileNotFoundError:
+        print(f'ERROR: {args.jobs_json} not found — run scripts/extract first', file=sys.stderr)
+        sys.exit(1)
+    except (json.JSONDecodeError, KeyError) as e:
+        print(f'ERROR: {args.jobs_json} is invalid: {e}', file=sys.stderr)
+        sys.exit(1)
 
     print(f'Loading headings from {docs_path} …')
     headings = load_headings(docs_path)
