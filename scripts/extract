@@ -19,7 +19,12 @@ def main():
 
     wb = openpyxl.load_workbook(xlsx_path, read_only=True, data_only=True)
     proposals = parse_proposal(wb)
-    jobs = parse_jobs(wb)
+    try:
+        jobs = parse_jobs(wb)
+    except ValueError as e:
+        print(f'ERROR: {e}', file=sys.stderr)
+        wb.close()
+        sys.exit(1)
     wb.close()
 
     for job in jobs:

@@ -54,3 +54,10 @@ def test_parse_proposal_returns_empty_when_sheet_missing():
     wb = openpyxl.Workbook()
     wb.active.title = 'Phase 3 Jobs'
     assert parse_proposal(wb) == {}
+
+
+def test_parse_jobs_missing_sheet_raises():
+    wb = openpyxl.Workbook()
+    wb.active.title = 'Wrong Sheet'
+    with pytest.raises(ValueError, match='not found'):
+        parse_jobs(wb)

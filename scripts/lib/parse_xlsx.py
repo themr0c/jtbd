@@ -101,10 +101,8 @@ def parse_proposal(wb):
 
 def parse_jobs(wb):
     """Parse 'Phase 3 Jobs' tab. Returns list of job dicts."""
-    import sys
     if JOBS_SHEET not in wb.sheetnames:
-        print(f'ERROR: tab "{JOBS_SHEET}" not found.', file=sys.stderr)
-        sys.exit(1)
+        raise ValueError(f'Tab "{JOBS_SHEET}" not found in workbook.')
     ws = wb[JOBS_SHEET]
     rows = list(ws.iter_rows(values_only=True))
     if not rows:
