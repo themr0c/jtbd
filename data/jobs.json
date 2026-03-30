@@ -1,0 +1,1531 @@
+{
+  "jobs": [
+    {
+      "num": "1",
+      "name": "Evaluate platform capabilities",
+      "summary": "JTBD - Evaluate platform capabilities",
+      "statement": "When exploring internal developer portals, I want to understand the platform's core capabilities and architecture so that I can determine if it meets my organization's needs.",
+      "category": "Discover",
+      "category_label": "discover",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "About Red Hat Developer Hub (Abstract, Ch 1, 2)",
+          "heading": "Evaluate Red Hat Developer Hub capabilities and architecture for your organization",
+          "sp": "2"
+        },
+        {
+          "source": "About Red Hat Developer Hub (Ch 3)",
+          "heading": "Review supported platforms and lifecycles to ensure compatibility",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "2",
+      "name": "Plan deployment resources",
+      "summary": "JTBD - Plan deployment resources",
+      "statement": "When preparing for installation, I want to identify the necessary compute and database resources so that I can ensure the platform performs reliably at scale.",
+      "category": "Plan",
+      "category_label": "plan",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "About Red Hat Developer Hub (Ch 4)",
+          "heading": "Sizing and system requirements for stable and performant deployments",
+          "sp": "2"
+        }
+      ]
+    },
+    {
+      "num": "3",
+      "name": "Deploy on OpenShift",
+      "summary": "JTBD - Deploy on OpenShift",
+      "statement": "When setting up the platform, I want to install on OpenShift so that I can leverage existing Red Hat infrastructure.",
+      "category": "Install",
+      "category_label": "install",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Installing... on OpenShift Container Platform",
+          "heading": "Install on OpenShift Container Platform to leverage existing Red Hat infrastructure",
+          "sp": "2"
+        }
+      ]
+    },
+    {
+      "num": "4",
+      "name": "Deploy on Hyperscalers",
+      "summary": "JTBD - Deploy on Hyperscalers",
+      "statement": "When using public clouds, I want to install on managed Kubernetes services (EKS, AKS, GKE) so that I can integrate with my cloud provider's ecosystem.",
+      "category": "Install",
+      "category_label": "install",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Installing... on EKS",
+          "heading": "Install on EKS to integrate with AWS cloud resources",
+          "sp": "5"
+        },
+        {
+          "source": "Installing... on GKE",
+          "heading": "Install on GKE to utilize Google Cloud infrastructure",
+          "sp": ""
+        },
+        {
+          "source": "Installing... on AKS",
+          "heading": "Install on AKS to align with Microsoft Azure environments",
+          "sp": ""
+        },
+        {
+          "source": "Installing... on OpenShift Dedicated",
+          "heading": "Install on OpenShift Dedicated to reduce infrastructure management overhead",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "5",
+      "name": "Deploy in Air-Gapped Environments",
+      "summary": "JTBD - Deploy in Air-Gapped Environments",
+      "statement": "When operating in secured networks, I want to install without internet access so that I comply with strict security policies.",
+      "category": "Install",
+      "category_label": "install",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Installing... in an air-gapped environment",
+          "heading": "Install in disconnected environments to comply with strict security policies",
+          "sp": "2"
+        }
+      ]
+    },
+    {
+      "num": "6",
+      "name": "Initialize the platform",
+      "summary": "JTBD - Initialize the platform",
+      "statement": "When accessing the platform for the first time, I want to perform basic configuration so that I can verify the installation and prepare the environment for users.",
+      "category": "Get Started",
+      "category_label": "get-started",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Setting up and configuring your first... (Ch 1)",
+          "heading": "Set up and configure your first instance",
+          "sp": "1"
+        }
+      ]
+    },
+    {
+      "num": "7",
+      "name": "Configure core infrastructure",
+      "summary": "JTBD - Configure core infrastructure",
+      "statement": "When tailoring the platform deployment, I want to configure storage, networking, and compute resources so that the instance integrates correctly and securely with my IT infrastructure.",
+      "category": "Configure",
+      "category_label": "configure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Provisioning and using your custom... configuration",
+          "heading": "Provision custom configurations to persist settings on restart",
+          "sp": "8"
+        },
+        {
+          "source": "1.1. Provisioning your custom...",
+          "heading": "Provision config maps and secrets to inject external configurations",
+          "sp": ""
+        },
+        {
+          "source": "1.2. Using the... Operator to run Developer Hub...",
+          "heading": "Run the Operator-based instance to apply custom resources",
+          "sp": ""
+        },
+        {
+          "source": "1.2.1. Injecting extra files...",
+          "heading": "Inject extra files and variables to configure container environments",
+          "sp": ""
+        },
+        {
+          "source": "1.3. Using the... Helm chart to run Developer Hub...",
+          "heading": "Run the Helm-based instance to apply custom values",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 2. Red Hat Developer Hub default configuration",
+          "heading": "Analyze default resource topology to understand the deployment footprint",
+          "sp": ""
+        },
+        {
+          "source": "2.1. ... default configuration guide",
+          "heading": "Review default Kubernetes resources to identify created objects",
+          "sp": ""
+        },
+        {
+          "source": "2.2. Automated Operator features",
+          "heading": "Leverage automated Operator metadata to ensure resource discovery",
+          "sp": ""
+        },
+        {
+          "source": "2.3. Mounts for default Secrets and... PVCs",
+          "heading": "Configure mount paths to customize secret and storage locations",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 3. Configuring external PostgreSQL databases",
+          "heading": "Connect to an external PostgreSQL database to ensure production data persistence",
+          "sp": ""
+        },
+        {
+          "source": "3.1. Configuring ... using the Operator",
+          "heading": "Configure the Operator connection to use an external database",
+          "sp": ""
+        },
+        {
+          "source": "3.2. Configuring ... using the Helm Chart",
+          "heading": "Configure the Helm chart connection to use an external database",
+          "sp": ""
+        },
+        {
+          "source": "3.3. Migrating local databases...",
+          "heading": "Migrate local data to external storage to preserve existing state",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 4. Configuring... deployment when using the Operator",
+          "heading": "Patch the Operator deployment to customize resource limits and sidecars",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 5. Configuring high availability...",
+          "heading": "Configure high availability to ensure service reliability during outages",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 6. Running... behind a corporate proxy",
+          "heading": "Configure corporate proxy settings to enable external network access",
+          "sp": ""
+        },
+        {
+          "source": "6.1. The NO_PROXY exclusion rules",
+          "heading": "Define NO_PROXY rules to bypass the proxy for internal traffic",
+          "sp": ""
+        },
+        {
+          "source": "6.2/6.3 Configuring proxy information...",
+          "heading": "Set proxy environment variables to route traffic correctly",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 7. Configuring... TLS connection...",
+          "heading": "Configure TLS connections to secure internal cluster communication",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 8. Using the dynamic plugins cache",
+          "heading": "Configure the dynamic plugins cache to improve instance startup time",
+          "sp": ""
+        },
+        {
+          "source": "8.2/8.3 Creating a PVC for the dynamic plugin cache...",
+          "heading": "Create cache PVCs to persist plugin data across restarts",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 9. Enabling the... plugin assets cache",
+          "heading": "Enable plugin asset caching to improve frontend load performance",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "8",
+      "name": "Brand and design the user interface",
+      "summary": "JTBD - Brand and design the user interface",
+      "statement": "When launching the platform, I want to apply my organization's branding and organize the navigation layout so that the platform provides a consistent, intuitive, and familiar developer experience.",
+      "category": "Configure",
+      "category_label": "configure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 10. Customizing... appearance",
+          "heading": "Customize visual themes and typography to match corporate branding",
+          "sp": "8"
+        },
+        {
+          "source": "10.1. Customizing the theme mode...",
+          "heading": "Set default Light or Dark theme mode to define visual preference",
+          "sp": ""
+        },
+        {
+          "source": "10.2. Customizing the branding logo...",
+          "heading": "Update the application logo to align with organizational identity",
+          "sp": ""
+        },
+        {
+          "source": "10.6. Customizing... color palettes...",
+          "heading": "Define custom color palettes to adhere to brand guidelines",
+          "sp": ""
+        },
+        {
+          "source": "10.7. Customizing... page theme header...",
+          "heading": "Customize page header styles to differentiate page types",
+          "sp": ""
+        },
+        {
+          "source": "10.8. Customizing the font...",
+          "heading": "Configure typography and fonts to ensure readability and consistency",
+          "sp": ""
+        },
+        {
+          "source": "10.11. Loading a custom... theme...",
+          "heading": "Load custom themes via dynamic plugins to apply advanced styling",
+          "sp": ""
+        },
+        {
+          "source": "10.12. Custom component options...",
+          "heading": "Configure component style variants to toggle specific UI effects",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 6. Configuring the global header...",
+          "heading": "Customize the global header layout to streamline top-level navigation",
+          "sp": ""
+        },
+        {
+          "source": "6.1. Customizing... global header",
+          "heading": "Configure global header items to prioritize essential tools",
+          "sp": ""
+        },
+        {
+          "source": "6.3. Configuring the logo in the global header",
+          "heading": "Configure the global header logo to reinforce brand identity",
+          "sp": ""
+        },
+        {
+          "source": "6.5. Displaying the preferred username...",
+          "heading": "Configure user profile display names to personalize the interface",
+          "sp": ""
+        },
+        {
+          "source": "6.6. Quicklinks and Starred Items...",
+          "heading": "Configure Quicklinks and Starred Items to provide fast access to resources",
+          "sp": ""
+        },
+        {
+          "source": "10.3. About the sidebar menu items...",
+          "heading": "Customize sidebar navigation items to organize tool access",
+          "sp": ""
+        },
+        {
+          "source": "10.3.1. Customizing the sidebar...",
+          "heading": "Modify sidebar menu structure to group related links logically",
+          "sp": ""
+        },
+        {
+          "source": "10.4. Configuring entity tab titles",
+          "heading": "Rename and reorder entity tabs to match internal terminology",
+          "sp": ""
+        },
+        {
+          "source": "10.5. Configuring entity detail tab layout",
+          "heading": "Customize entity detail page layouts to highlight critical information",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 11. Customizing the Home page",
+          "heading": "Design the Home page experience to highlight relevant resources",
+          "sp": ""
+        },
+        {
+          "source": "11.2. Customizing the Home page cards",
+          "heading": "Configure Home page cards to display actionable widgets",
+          "sp": ""
+        },
+        {
+          "source": "11.3. Defining the layout...",
+          "heading": "Define responsive grid layouts to support various screen sizes",
+          "sp": ""
+        },
+        {
+          "source": "11.4. Customizing your dynamic homepage...",
+          "heading": "Enable user-customizable homepages to allow personal dashboard organization",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 12. Customizing the Quick access card",
+          "heading": "Manage Quick Access links to centralize frequently used tools",
+          "sp": ""
+        },
+        {
+          "source": "12.1. Using hosted JSON files...",
+          "heading": "Load Quick Access links from a JSON file to simplify link management",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "9",
+      "name": "Configure instance identity and localization",
+      "summary": "JTBD - Configure instance identity and localization",
+      "statement": "When initializing the instance, I want to set identification details and language preferences so that the platform is correctly identified on the network and accessible to global teams.",
+      "category": "Configure",
+      "category_label": "configure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Customizing your... title",
+          "heading": "Set the platform display title to clearly identify the environment",
+          "sp": "5"
+        },
+        {
+          "source": "Chapter 2. Customizing your... base URL",
+          "heading": "Set the base URL to ensure correct routing and redirects",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 3. Customizing... backend secret",
+          "heading": "Define the backend secret to secure service-to-service authentication",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 13. Customizing the RHDH Metadata card...",
+          "heading": "Customize build metadata display to control version visibility",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 14. Localization...",
+          "heading": "Localize the platform to support global engineering teams",
+          "sp": ""
+        },
+        {
+          "source": "14.1. Enabling the localization framework...",
+          "heading": "Enable the localization framework to activate multi-language support",
+          "sp": ""
+        },
+        {
+          "source": "14.2. Selecting the language...",
+          "heading": "Select the active interface language to serve content in users' preferred language",
+          "sp": ""
+        },
+        {
+          "source": "14.3. Localization support for plugins",
+          "heading": "Implement localization in plugins to ensure consistent translation coverage",
+          "sp": ""
+        },
+        {
+          "source": "10.3.2. Enabling sidebar... localization",
+          "heading": "Localize sidebar menu items to translate navigation elements",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "name": "Configure enablement and help tools",
+      "summary": "JTBD - Configure enablement and help tools",
+      "statement": "When supporting developer onboarding, I want to configure learning aids and quickstarts so that users can quickly adopt the platform and find help when needed.",
+      "category": "Configure",
+      "category_label": "configure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 5. Customizing the Learning Paths...",
+          "heading": "Configure Learning Paths to guide developer onboarding",
+          "sp": "5"
+        },
+        {
+          "source": "5.2. Customizing... by using a hosted JSON file",
+          "heading": "Load Learning Paths from a JSON file to provide structured training modules",
+          "sp": ""
+        },
+        {
+          "source": "5.3. Customizing... by using a customization service",
+          "heading": "Load Learning Paths from a service to serve dynamic training content",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 8. Customizing the Quickstart plugin",
+          "heading": "Customize Quickstart guides to provide interactive assistance",
+          "sp": ""
+        },
+        {
+          "source": "8.2. Manage user access... RBAC",
+          "heading": "Control Quickstart visibility to target guides to specific user roles",
+          "sp": ""
+        },
+        {
+          "source": "8.3. Customizing your... Quickstart",
+          "heading": "Define custom Quickstart content to provide internal onboarding instructions",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 9. Customizing the Tech Radar...",
+          "heading": "Configure the Tech Radar to standardize technology adoption",
+          "sp": ""
+        },
+        {
+          "source": "9.1. Customizing... by using a JSON file",
+          "heading": "Load Tech Radar data from a JSON file to visualize approved technologies",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 7. Configuring a floating action button...",
+          "heading": "Configure Floating Action Buttons to provide quick access to support",
+          "sp": ""
+        },
+        {
+          "source": "7.1. Configuring... as a dynamic plugin",
+          "heading": "Add floating help buttons to execute common actions or open links",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "11",
+      "name": "Configure authentication providers",
+      "summary": "JTBD - Configure authentication providers",
+      "statement": "When setting up the platform, I want to configure authentication providers so that I can verify user identities against my organization's existing directories.",
+      "category": "Secure",
+      "category_label": "secure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Understanding authentication...",
+          "heading": "Overview of authentication concepts to plan user provisioning strategies",
+          "sp": "3"
+        },
+        {
+          "source": "Chapter 2. Authenticating with the Guest user",
+          "heading": "Enable Guest access to explore features without external providers",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 3. Authenticating with Red Hat Build of Keycloak (RHBK)",
+          "heading": "Configure Keycloak authentication to centralize identity management",
+          "sp": ""
+        },
+        {
+          "source": "3.2. Enabling user provisioning with LDAP",
+          "heading": "Provision users from LDAP to synchronize directory groups",
+          "sp": ""
+        },
+        {
+          "source": "3.3. Creating a custom transformer...",
+          "heading": "Customize user provisioning logic to map complex identity data",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 4. Enabling authentication with GitHub",
+          "heading": "Configure GitHub authentication to enable login via GitHub organizations",
+          "sp": ""
+        },
+        {
+          "source": "4.1. Enabling user authentication with GitHub...",
+          "heading": "Configure GitHub identity providers to sync users and teams",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 5. Authenticating with Microsoft Azure",
+          "heading": "Configure Microsoft Azure authentication to integrate with corporate Entra ID",
+          "sp": ""
+        },
+        {
+          "source": "5.2. Customizing the Microsoft authentication provider",
+          "heading": "Customize the Azure provider to filter tenants and scopes",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 6. Troubleshooting authentication issues",
+          "heading": "Troubleshoot authentication issues to resolve login errors",
+          "sp": ""
+        },
+        {
+          "source": "6.1. Reducing the size of issued tokens",
+          "heading": "Reduce token size to prevent HTTP header overflow errors",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "name": "Manage authorization and permissions",
+      "summary": "JTBD - Manage authorization and permissions",
+      "statement": "When managing access, I want to define roles and permission policies so that I can control exactly which actions users can perform on platform resources.",
+      "category": "Secure",
+      "category_label": "secure",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Enabling ... access to the RBAC feature",
+          "heading": "Enable the RBAC feature to restrict access to authorized users",
+          "sp": "8"
+        },
+        {
+          "source": "Chapter 4. Managing RBAC using the ... Web UI",
+          "heading": "Manage roles via the Web UI to configure permissions visually",
+          "sp": ""
+        },
+        {
+          "source": "4.1. Creating a role...",
+          "heading": "Create roles to group users with shared responsibilities",
+          "sp": ""
+        },
+        {
+          "source": "4.2. Editing a role...",
+          "heading": "Edit role details to update permission scopes",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 5. Managing authorizations by using the REST API",
+          "heading": "Manage authorizations via the REST API to automate access controls",
+          "sp": ""
+        },
+        {
+          "source": "5.1. Sending requests... by using the curl utility",
+          "heading": "Send API requests via curl to test permission updates",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 6. Managing authorizations by using external files",
+          "heading": "Define policies in external files to manage permissions as code (GitOps)",
+          "sp": ""
+        },
+        {
+          "source": "6.1. Defining authorizations ... by using the Operator",
+          "heading": "Define policies via the Operator to enforce immutable permissions",
+          "sp": ""
+        },
+        {
+          "source": "6.2. Defining authorizations ... by using Helm",
+          "heading": "Define policies via Helm to streamline deployment configuration",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 8. Delegating RBAC access",
+          "heading": "Delegate RBAC access to empower team leads with scoped permissions",
+          "sp": ""
+        },
+        {
+          "source": "8.1. Delegating ... by using the web UI",
+          "heading": "Delegate access via the UI to allow self-service team management",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 10. Conditional policies",
+          "heading": "Define conditional policies to grant dynamic access based on ownership",
+          "sp": ""
+        },
+        {
+          "source": "10.1. Enabling transitive parent groups",
+          "heading": "Enable transitive ownership to support complex group hierarchies",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 7. Configuring guest access with RBAC UI",
+          "heading": "Configure guest access with RBAC to test policies in development",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 9. Permission policies reference",
+          "heading": "Reference permission policies to identify available resource actions",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 11. User statistics",
+          "heading": "View user statistics to audit active platform usage",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "13",
+      "name": "Manage the plugin ecosystem",
+      "summary": "JTBD - Manage the plugin ecosystem",
+      "statement": "When building a tailored developer platform, I want to discover, install, and manage dynamic plugins so that I can add new capabilities without rebuilding or restarting the core platform.",
+      "category": "Extend",
+      "category_label": "extend",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Intro) Chapter 1. Plugins in Red Hat Developer Hub",
+          "heading": "Explore the plugin architecture to understand extension capabilities",
+          "sp": "5"
+        },
+        {
+          "source": "(Install) Chapter 1. Installing dynamic plugins...",
+          "heading": "Install dynamic plugins to add functionality without downtime",
+          "sp": ""
+        },
+        {
+          "source": "1.1. Installing dynamic plugins... using the Operator",
+          "heading": "Install plugins via the Operator to manage extensions declaratively",
+          "sp": ""
+        },
+        {
+          "source": "1.1. Installing dynamic plugins... using the Helm Chart",
+          "heading": "Install plugins via Helm to integrate with existing chart deployments",
+          "sp": ""
+        },
+        {
+          "source": "(Install) 1.2. Dynamic plugins dependency management",
+          "heading": "Manage plugin dependencies to ensure required resources exist",
+          "sp": ""
+        },
+        {
+          "source": "(Install) Chapter 2. Install plugins from OCI registries...",
+          "heading": "Install plugins from OCI registries to use custom or private extensions",
+          "sp": ""
+        },
+        {
+          "source": "(Install) Chapter 6. Extensions in Red Hat Developer Hub",
+          "heading": "Manage plugins via the Extensions UI to simplify administration",
+          "sp": ""
+        },
+        {
+          "source": "6.1. Viewing available plugins",
+          "heading": "Browse the plugin marketplace to discover available extensions",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "14",
+      "name": "Develop and deploy custom dynamic plugins",
+      "summary": "JTBD - Develop and deploy custom dynamic plugins",
+      "statement": "When standard plugins do not meet our needs, I want to develop, package, and deploy custom dynamic plugins so that I can extend the platform with bespoke functionality and logic.",
+      "category": "Extend",
+      "category_label": "extend",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Develop and deploy dynamic plugins",
+          "heading": "Develop and deploy dynamic plugins in Red Hat Developer Hub",
+          "sp": "Develop and deploy dynamic plugins to extend platform capabilities"
+        },
+        {
+          "source": "Overview of dynamic plugins",
+          "heading": "Understand the dynamic plugin development lifecycle",
+          "sp": ""
+        },
+        {
+          "source": "Prepare your development environment",
+          "heading": "Prepare the development environment to build plugins",
+          "sp": ""
+        },
+        {
+          "source": "Develop a new plugin",
+          "heading": "Develop a new plugin using the scaffolding tool",
+          "sp": ""
+        },
+        {
+          "source": "Convert a custom plugin into a dynamic plugin",
+          "heading": "Convert existing plugins to dynamic plugins for runtime loading",
+          "sp": ""
+        },
+        {
+          "source": "Publish and deploy plugins",
+          "heading": "Publish plugins to an OCI registry for distribution",
+          "sp": ""
+        },
+        {
+          "source": "Verify plugins locally",
+          "heading": "Verify plugins locally to ensure functionality before deployment",
+          "sp": ""
+        },
+        {
+          "source": "Deploy plugins",
+          "heading": "Deploy custom plugins to the platform",
+          "sp": ""
+        },
+        {
+          "source": "Maintain and scale plugins to ensure long-term stability",
+          "heading": "Maintain and scale plugins to ensure long-term stability",
+          "sp": ""
+        },
+        {
+          "source": "Examples",
+          "heading": "Reference example plugin implementations",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 8. Front-end plugin wiring",
+          "heading": "Configure front-end wiring to integrate custom UI components",
+          "sp": ""
+        },
+        {
+          "source": "8.3. Defining dynamic routes...",
+          "heading": "Define dynamic routes to expose new plugin pages",
+          "sp": ""
+        },
+        {
+          "source": "8.6. Using mount points",
+          "heading": "Use mount points to inject custom content into existing views",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 11. Configuring... Events Module",
+          "heading": "Configure the Events Module to react to external signals",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 12. Overriding Core Backend...",
+          "heading": "Override core backend services to customize low-level platform behavior",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "15",
+      "name": "Integrate development and infrastructure tools",
+      "summary": "JTBD - Integrate development and infrastructure tools",
+      "statement": "When integrating our toolchain, I want to configure plugins for CI/CD, virtualization, and infrastructure so that developers can visualize pipelines and workloads directly within the portal.",
+      "category": "Extend",
+      "category_label": "extend",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Config) Chapter 2 / (Using) Chapter 2: Argo CD",
+          "heading": "Integrate Argo CD to visualize GitOps deployment statuses",
+          "sp": "5"
+        },
+        {
+          "source": "(Config) Chapter 6 / (Using) Chapter 6: Tekton",
+          "heading": "Integrate Tekton to track CI pipeline execution results",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 7 / (Using) Chapter 7: Topology",
+          "heading": "Integrate Topology to visualize Kubernetes workloads graphically",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 10: Kubernetes custom actions",
+          "heading": "Configure Kubernetes custom actions to enable scaffolding operations",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 1. Installing Ansible plug-ins...",
+          "heading": "Integrate Ansible to enable automation workflows",
+          "sp": ""
+        },
+        {
+          "source": "(Config) Chapter 9. ServiceNow Custom actions...",
+          "heading": "Integrate ServiceNow to automate ITSM record management",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "16",
+      "name": "Integrate AI capabilities",
+      "summary": "JTBD - Integrate AI capabilities",
+      "statement": "When modernizing the developer experience, I want to integrate AI agents and model catalogs so that developers can use assisted coding and discover AI assets.",
+      "category": "Extend",
+      "category_label": "extend",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Lightspeed) Chapter 1. Interacting with... Lightspeed",
+          "heading": "Integrate Developer Lightspeed to provide an AI virtual assistant",
+          "sp": "5"
+        },
+        {
+          "source": "1.4. Installing and configuring... Lightspeed",
+          "heading": "Install Lightspeed components to enable the chat interface",
+          "sp": ""
+        },
+        {
+          "source": "(OpenShift AI) Chapter 1. Understand how AI assets map...",
+          "heading": "Integrate OpenShift AI to discover models in the software catalog",
+          "sp": ""
+        },
+        {
+          "source": "(OpenShift AI) Chapter 2. Setting up... Connector",
+          "heading": "Configure the OpenShift AI Connector to synchronize model data",
+          "sp": ""
+        },
+        {
+          "source": "(MCP) Chapter 1. Interacting with... MCP tools",
+          "heading": "Integrate Model Context Protocol tools to standardize AI connections",
+          "sp": ""
+        },
+        {
+          "source": "(MCP) 1.2. Installing the MCP server...",
+          "heading": "Install the MCP server to enable tool calling for AI clients",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "17",
+      "name": "Automate repository onboarding",
+      "summary": "JTBD - Automate repository onboarding",
+      "statement": "When managing a large codebase, I want to bulk import repositories and track their status so that I can quickly populate the catalog without manual registration.",
+      "category": "Develop",
+      "category_label": "develop",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Importing your team’s codebase from Git",
+          "heading": "Automate repository onboarding to streamline catalog population",
+          "sp": "3"
+        },
+        {
+          "source": "1.1. Enabling ... Bulk Import capabilities...",
+          "heading": "Enable bulk import capabilities to allow mass ingestion of repositories",
+          "sp": ""
+        },
+        {
+          "source": "1.2. Importing multiple GitHub repositories",
+          "heading": "Import multiple repositories simultaneously to populate the catalog quickly",
+          "sp": ""
+        },
+        {
+          "source": "1.3. Managing the added Git repositories",
+          "heading": "Manage imported repository status to track onboarding progress",
+          "sp": ""
+        },
+        {
+          "source": "1.4. Monitoring Bulk Import actions...",
+          "heading": "Monitor bulk import events via audit logs to troubleshoot ingestion errors",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "18",
+      "name": "Manage the software catalog",
+      "summary": "JTBD - Manage the software catalog",
+      "statement": "When maintaining the software ecosystem, I want to register, update, and organize components so that developers have a single, searchable view of all services and APIs.",
+      "category": "Develop",
+      "category_label": "develop",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 2. Centralizing your software components...",
+          "heading": "Centralize software components to maintain a unified service inventory",
+          "sp": "3"
+        },
+        {
+          "source": "2.1. Adding new components...",
+          "heading": "Register software components to expand the catalog",
+          "sp": ""
+        },
+        {
+          "source": "2.1.1. Creating new components...",
+          "heading": "Create components using templates to ensure standardization",
+          "sp": ""
+        },
+        {
+          "source": "2.1.2. Registering components manually...",
+          "heading": "Register existing components manually to onboard legacy software",
+          "sp": ""
+        },
+        {
+          "source": "2.2. Updating existing component...",
+          "heading": "Update component metadata to keep the catalog accurate",
+          "sp": ""
+        },
+        {
+          "source": "2.3. Finding the right components... by Kind",
+          "heading": "Filter components by Kind to narrow down search results",
+          "sp": ""
+        },
+        {
+          "source": "2.4. Finding the right component... by using the Filter field",
+          "heading": "Search components using keywords to locate specific services",
+          "sp": ""
+        },
+        {
+          "source": "2.5. Reviewing the YAML configuration...",
+          "heading": "Review catalog YAML configurations to validate metadata definitions",
+          "sp": ""
+        },
+        {
+          "source": "2.6. Starring key components...",
+          "heading": "Star components to access frequently used services quickly",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "19",
+      "name": "Standardize development with Software Templates",
+      "summary": "JTBD - Standardize development with Software Templates",
+      "statement": "When starting new projects, I want to design and use approved templates so that my applications are scaffolded with the correct standards, dependencies, and security controls automatically.",
+      "category": "Develop",
+      "category_label": "develop",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Streamline) Chapter 3. Importing and using an existing Software Template...",
+          "heading": "Standardize development with templates to accelerate project setup",
+          "sp": "5"
+        },
+        {
+          "source": "3.1. Creating a Software Template by using the Template Editor",
+          "heading": "Design templates using the Template Editor to visually construct scaffolding logic",
+          "sp": ""
+        },
+        {
+          "source": "3.2. Creating a Software Template as a YAML file",
+          "heading": "Define templates using YAML to version control scaffolding logic",
+          "sp": ""
+        },
+        {
+          "source": "3.3. Creating a new software component using Software Templates",
+          "heading": "Scaffold new projects from templates to ensure compliance with standards",
+          "sp": ""
+        },
+        {
+          "source": "3.4. Searching and filtering Software Templates...",
+          "heading": "Search and filter available templates to find the right starter project",
+          "sp": ""
+        },
+        {
+          "source": "3.5. Importing an existing Software Template...",
+          "heading": "Import external templates into the catalog to reuse existing assets",
+          "sp": ""
+        },
+        {
+          "source": "(Customizing) Chapter 4. About Software Templates",
+          "heading": "Manage Software Template lifecycles to maintain version control",
+          "sp": ""
+        },
+        {
+          "source": "4.1. Versioning a Software Template...",
+          "heading": "Version Software Templates to track changes and updates",
+          "sp": ""
+        },
+        {
+          "source": "4.2. Enabling Software Template version update notifications...",
+          "heading": "Enable notifications for template updates to alert users of new versions",
+          "sp": ""
+        },
+        {
+          "source": "4.3. Tracking Component origin...",
+          "heading": "Track component provenance to audit template usage",
+          "sp": ""
+        },
+        {
+          "source": "4.3.1. Configuring provenance...",
+          "heading": "Configure provenance annotations to link components to their source templates",
+          "sp": ""
+        },
+        {
+          "source": "4.3.2. Viewing Software Template dependencies",
+          "heading": "View template usage dependencies to assess the impact of changes",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "20",
+      "name": "Automate workflows with Orchestrator",
+      "summary": "JTBD - Automate workflows with Orchestrator",
+      "statement": "When building complex processes, I want to define and run serverless workflows so that I can execute long-running operations like infrastructure provisioning or cloud migration.",
+      "category": "Develop",
+      "category_label": "develop",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. About Orchestrator...",
+          "heading": "Understand Orchestrator capabilities to plan serverless automation",
+          "sp": "5"
+        },
+        {
+          "source": "Chapter 7. Build and deploy serverless workflows",
+          "heading": "Build and deploy serverless workflows to execute custom logic",
+          "sp": ""
+        },
+        {
+          "source": "7.1. Benefits of workflow images",
+          "heading": "Review workflow image benefits to ensure production readiness",
+          "sp": ""
+        },
+        {
+          "source": "7.1.2. Creating and running... locally",
+          "heading": "Develop workflows locally to test logic before deployment",
+          "sp": ""
+        },
+        {
+          "source": "7.2. Building workflow images locally",
+          "heading": "Build workflow images locally to package automation for the cluster",
+          "sp": ""
+        },
+        {
+          "source": "7.5. Best practices...",
+          "heading": "Apply best practices to design robust and maintainable workflows",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 8. Automating workflow deployment...",
+          "heading": "Automate workflow deployment to streamline CI/CD operations",
+          "sp": ""
+        },
+        {
+          "source": "8.1. Installing Orchestrator software templates",
+          "heading": "Install Orchestrator templates to enable quick workflow bootstrapping",
+          "sp": ""
+        },
+        {
+          "source": "8.2. Creating a serverless workflow project",
+          "heading": "Generate serverless workflow projects to start development quickly",
+          "sp": ""
+        },
+        {
+          "source": "8.4. Verifying the deployment",
+          "heading": "Verify pipeline deployments to ensure workflows are active",
+          "sp": ""
+        },
+        {
+          "source": "8.5. Troubleshooting workflow deployments",
+          "heading": "Troubleshoot workflow deployments to resolve execution errors",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "21",
+      "name": "Write and publish technical documentation",
+      "summary": "JTBD - Write and publish technical documentation",
+      "statement": "When documenting features, I want to write, edit, and search technical documentation directly within the platform so that knowledge is accessible and stays synchronized with the code.",
+      "category": "Develop",
+      "category_label": "develop",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Manage) Chapter 1. Adding documentation to TechDocs...",
+          "heading": "Add documentation to the platform to centralize project knowledge",
+          "sp": "3"
+        },
+        {
+          "source": "1.1. Importing documentation...",
+          "heading": "Import docs-as-code from repositories to synchronize docs with code",
+          "sp": ""
+        },
+        {
+          "source": "(Manage) Chapter 2. Searching for relevant content...",
+          "heading": "Search technical documentation to find specific information quickly",
+          "sp": ""
+        },
+        {
+          "source": "(Manage) Chapter 3. Accessing and reading documentation...",
+          "heading": "Read and navigate documentation to consume project details",
+          "sp": ""
+        },
+        {
+          "source": "(TechDocs) Chapter 3. TechDocs add-ons",
+          "heading": "Enhance the reading experience with add-ons",
+          "sp": ""
+        },
+        {
+          "source": "3.3.1. Using the ReportIssue...",
+          "heading": "Report documentation issues to provide feedback directly from the page",
+          "sp": ""
+        },
+        {
+          "source": "3.3.2. Using the TextSize...",
+          "heading": "Adjust text size to improve readability",
+          "sp": ""
+        },
+        {
+          "source": "3.3.3. Using the LightBox...",
+          "heading": "View images in LightBox to inspect diagrams in detail",
+          "sp": ""
+        },
+        {
+          "source": "(Manage) Chapter 4. Making changes to project documentation...",
+          "heading": "Edit documentation content to keep information up to date",
+          "sp": ""
+        },
+        {
+          "source": "(Manage) Chapter 5. Adding video content...",
+          "heading": "Embed video content to enhance documentation with media",
+          "sp": ""
+        },
+        {
+          "source": "(Manage) Chapter 6. Streamlining documentation builds...",
+          "heading": "Automate documentation builds with GitHub Actions to publish updates continuously",
+          "sp": ""
+        },
+        {
+          "source": "(TechDocs) Chapter 4. Creating a TechDocs add-on",
+          "heading": "Develop custom TechDocs add-ons to extend documentation functionality",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "22",
+      "name": "Analyze platform adoption",
+      "summary": "JTBD - Analyze platform adoption",
+      "statement": "When managing the platform, I want to track active users, top components, and plugin usage so that I can measure adoption rates and justify the platform's value to stakeholders.",
+      "category": "Administer",
+      "category_label": "administer",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Adoption Insights",
+          "heading": "Analyze platform adoption trends to measure engagement",
+          "sp": "3"
+        },
+        {
+          "source": "1.1. Configuring the Adoption Insights plugin...",
+          "heading": "Configure the Adoption Insights plugin to enable usage tracking",
+          "sp": ""
+        },
+        {
+          "source": "1.2. Customizing the Adoption Insights plugin...",
+          "heading": "Customize data collection to refine analytics scope",
+          "sp": ""
+        },
+        {
+          "source": "1.3. Using Adoption Insights...",
+          "heading": "Access the Adoption Insights dashboard to visualize key metrics",
+          "sp": ""
+        },
+        {
+          "source": "1.3.1. Setting the duration...",
+          "heading": "Set the data time range to analyze specific periods",
+          "sp": ""
+        },
+        {
+          "source": "1.4.1. Viewing the active users",
+          "heading": "Track active users to measure growth and retention",
+          "sp": ""
+        },
+        {
+          "source": "1.4.3. Viewing the top catalog entities",
+          "heading": "Identify top catalog entities to understand resource popularity",
+          "sp": ""
+        },
+        {
+          "source": "1.4.4 - 1.4.6 (Templates, TechDocs, Plugins)",
+          "heading": "Identify top tools and documentation to guide enablement efforts",
+          "sp": ""
+        },
+        {
+          "source": "1.7. Viewing Searches",
+          "heading": "Analyze search queries to identify content gaps",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "23",
+      "name": "Govern component compliance",
+      "summary": "JTBD - Govern component compliance",
+      "statement": "When maintaining the software catalog, I want to enforce development standards and monitor component health so that I can ensure all registered software meets our security and quality benchmarks.",
+      "category": "Administer",
+      "category_label": "administer",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Evaluate project health using Scorecards",
+          "heading": "Govern component compliance with Scorecards to enforce standards",
+          "sp": "1"
+        },
+        {
+          "source": "1.1. Component health...",
+          "heading": "Scorecard capabilities to evaluate service readiness",
+          "sp": ""
+        },
+        {
+          "source": "1.2.1. Enabling Scorecards",
+          "heading": "Enable the Scorecard plugin to start monitoring component health",
+          "sp": ""
+        },
+        {
+          "source": "1.2.2. Installing... to view metrics",
+          "heading": "Configure RBAC for Scorecards to control access to health metrics",
+          "sp": ""
+        },
+        {
+          "source": "1.3.1. Integrating GitHub health metrics...",
+          "heading": "Integrate GitHub metrics to track code health and pull requests",
+          "sp": ""
+        },
+        {
+          "source": "1.3.2. Integrating Jira health metrics...",
+          "heading": "Integrate Jira metrics to track issue resolution and project velocity",
+          "sp": ""
+        },
+        {
+          "source": "1.4. Scorecard metric thresholds",
+          "heading": "Define metric thresholds to standardize health scoring",
+          "sp": ""
+        },
+        {
+          "source": "1.4.4. Standardize... across components",
+          "heading": "Set global thresholds to enforce consistent quality gates",
+          "sp": ""
+        },
+        {
+          "source": "1.4.5. Override rules...",
+          "heading": "Override thresholds per entity to accommodate specific project needs",
+          "sp": ""
+        },
+        {
+          "source": "(Monitoring component health...)",
+          "heading": "Monitor component health to identify risks and compliance gaps",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "24",
+      "name": "Monitor system performance and logs",
+      "summary": "JTBD - Monitor system performance and logs",
+      "statement": "When operating the platform, I want to configure logging levels and metric collection so that I can troubleshoot performance issues and ensure system availability.",
+      "category": "Observe",
+      "category_label": "observe",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Log Levels",
+          "heading": "Configure application log verbosity to control diagnostic detail",
+          "sp": "3"
+        },
+        {
+          "source": "(Implicit) Setting LOG_LEVEL",
+          "heading": "Set the log level to filter events by severity",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 2. Enabling observability... on OpenShift",
+          "heading": "Enable OpenShift observability to scrape metrics from user projects",
+          "sp": ""
+        },
+        {
+          "source": "2.1. Enabling observability... (Operator)",
+          "heading": "Configure the Operator to create ServiceMonitors for metric collection",
+          "sp": ""
+        },
+        {
+          "source": "2.2. Enabling metrics... (Helm)",
+          "heading": "Configure the Helm chart to expose metrics for scraping",
+          "sp": ""
+        },
+        {
+          "source": "Chapter 3. Monitoring... on AWS",
+          "heading": "Monitor on AWS to centralize logging and metrics",
+          "sp": ""
+        },
+        {
+          "source": "3.1. Monitoring with Amazon Prometheus",
+          "heading": "Configure Amazon Prometheus to extract data from pod annotations",
+          "sp": ""
+        },
+        {
+          "source": "3.1.2/3.1.3 Configuring annotations...",
+          "heading": "Add Prometheus annotations to enable metric scraping by the cloud provider",
+          "sp": ""
+        },
+        {
+          "source": "3.2. Logging with Amazon CloudWatch",
+          "heading": "Configure Amazon CloudWatch to aggregate container logs",
+          "sp": ""
+        },
+        {
+          "source": "3.3. Viewing logs in CloudWatch",
+          "heading": "Query CloudWatch logs to analyze application events",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "25",
+      "name": "Audit system events",
+      "summary": "JTBD - Audit system events",
+      "statement": "When ensuring compliance, I want to capture and review audit logs so that I can trace user activities and maintain security accountability.",
+      "category": "Observe",
+      "category_label": "observe",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "Chapter 1. Audit logs in Red Hat Developer Hub",
+          "heading": "Review audit logs to track security and compliance events",
+          "sp": "3"
+        },
+        {
+          "source": "1.1. Configuring audit logs... on OpenShift",
+          "heading": "Configure OpenShift logging to capture Developer Hub audit trails",
+          "sp": ""
+        },
+        {
+          "source": "1.2. Forwarding... audit logs to Splunk",
+          "heading": "Forward audit logs to Splunk to centralize security analysis",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Configuring ClusterLogForwarder",
+          "heading": "Define log forwarding pipelines to route audit events to external SIEMs",
+          "sp": ""
+        },
+        {
+          "source": "1.3. Viewing audit logs in Developer Hub",
+          "heading": "View audit logs in the console to investigate specific events",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "26",
+      "name": "Maintain platform versioning",
+      "summary": "JTBD - Maintain platform versioning",
+      "statement": "When a new version is released, I want to upgrade the Red Hat Developer Hub instance using the Operator or Helm chart so that I can access the latest features, security patches, and performance improvements without disrupting the environment.",
+      "category": "Upgrade",
+      "category_label": "upgrade",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Upgrading) Chapter 1. Upgrading the Red Hat Developer Hub Operator",
+          "heading": "Upgrade using the Operator to update the managed instance via OLM",
+          "sp": "5"
+        },
+        {
+          "source": "(Upgrading) 1. ... Approval Strategy (Implicit)",
+          "heading": "Approve the InstallPlan to trigger the Operator update",
+          "sp": ""
+        },
+        {
+          "source": "(Upgrading) Chapter 2. Upgrading the Red Hat Developer Hub Helm Chart",
+          "heading": "Upgrade using the Helm chart to apply the latest release artifacts",
+          "sp": ""
+        },
+        {
+          "source": "(Upgrading) 2. ... OpenShift Container Platform CLI (Implicit)",
+          "heading": "Apply Helm upgrades via CLI to automate version updates",
+          "sp": ""
+        },
+        {
+          "source": "(Orchestrator) 3.2. Upgrading the Orchestrator plugin from 1.7 to 1.8",
+          "heading": "Upgrade the Orchestrator plugin to ensure compatibility with RHDH 1.8",
+          "sp": ""
+        },
+        {
+          "source": "(AKS) Upgrade",
+          "heading": "Upgrade the Helm deployment on AKS to apply the latest chart version",
+          "sp": ""
+        },
+        {
+          "source": "(GKE) To upgrade your deployment",
+          "heading": "Upgrade the Helm deployment on GKE to apply the latest chart version",
+          "sp": ""
+        }
+      ]
+    },
+    {
+      "num": "27",
+      "name": "Consult technical specifications and configurations",
+      "summary": "JTBD - Consult technical specifications and configurations",
+      "statement": "When performing advanced customization or automation, I want to look up authoritative parameters, policies, and plugin details so that I can accurately configure the platform and resolve integration issues without guessing.",
+      "category": "Reference",
+      "category_label": "reference",
+      "priority": "Normal",
+      "entries": [
+        {
+          "source": "(Dynamic plugins) Chapter 1. Plugins in Red Hat Developer Hub",
+          "heading": "Reference dynamic plugin details to verify support status and configuration paths",
+          "sp": "8"
+        },
+        {
+          "source": "1.1. Red Hat supported plugins",
+          "heading": "Reference Red Hat supported plugins to identify production-ready extensions",
+          "sp": ""
+        },
+        {
+          "source": "1.2. Technology Preview plugins",
+          "heading": "Reference Technology Preview plugins to evaluate upcoming features",
+          "sp": ""
+        },
+        {
+          "source": "1.2.2. Deprecated plugins",
+          "heading": "Reference deprecated plugins to plan migration strategies",
+          "sp": ""
+        },
+        {
+          "source": "(Configuring plugins) Table 12.1. Environment variables...",
+          "heading": "Reference core service environment variables to override default backend behavior",
+          "sp": ""
+        },
+        {
+          "source": "(Configuring plugins) 10.4. Supported Kubernetes custom actions...",
+          "heading": "Reference Kubernetes custom actions to define scaffolder templates",
+          "sp": ""
+        },
+        {
+          "source": "(Authorization) Chapter 9. Permission policies reference",
+          "heading": "Reference permission policies to define granular access controls",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Catalog permissions",
+          "heading": "Reference Catalog permissions to control entity visibility and management",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Scaffolder permissions",
+          "heading": "Reference Scaffolder permissions to restrict template execution",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) RBAC permissions",
+          "heading": "Reference RBAC permissions to secure policy management",
+          "sp": ""
+        },
+        {
+          "source": "(Authorization) 10.2. Conditional policies reference",
+          "heading": "Reference conditional policy rules to filter resource access dynamically",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Conditional criteria (allOf, anyOf, not)",
+          "heading": "Reference conditional criteria to combine multiple access rules",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Conditional object parameters",
+          "heading": "Reference conditional object schemas to construct valid policy JSON",
+          "sp": ""
+        },
+        {
+          "source": "(Orchestrator) 3.3. Orchestrator plugin permissions",
+          "heading": "Reference Orchestrator permissions to control workflow access",
+          "sp": ""
+        },
+        {
+          "source": "(Scorecards) 1.1.1. Supported Scorecard metrics providers",
+          "heading": "Reference Scorecard metrics to select appropriate health indicators",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) GitHub metrics",
+          "heading": "Reference GitHub metrics to monitor pull request activity",
+          "sp": ""
+        },
+        {
+          "source": "(Implicit) Jira metrics",
+          "heading": "Reference Jira metrics to track issue resolution velocity",
+          "sp": ""
+        },
+        {
+          "source": "(MCP) 1.4. Using the MCP tools...",
+          "heading": "Reference MCP tool parameters to configure AI client interactions",
+          "sp": ""
+        },
+        {
+          "source": "1.4.1. ... Software Catalog data",
+          "heading": "Reference Software Catalog tool parameters to filter entity retrieval",
+          "sp": ""
+        },
+        {
+          "source": "1.4.2. ... TechDocs MCP tools",
+          "heading": "Reference TechDocs tool parameters to retrieve documentation content",
+          "sp": ""
+        }
+      ]
+    }
+  ]
+}
